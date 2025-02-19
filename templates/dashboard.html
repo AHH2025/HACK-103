@@ -1,0 +1,14 @@
+<h2>Welcome, {{ current_user.username }}</h2>
+<a href="/logout">Logout</a>
+<h3>Your Complaints</h3>
+<ul>
+    {% for complaint in complaints %}
+    <li>
+        <b>Category:</b> {{ complaint.category }} <br>
+        <b>Description:</b> {{ complaint.description }} <br>
+        <b>Status:</b> {{ complaint.status }} <br>
+        <a href="/update_status/{{ complaint.id }}/Resolved">Mark as Resolved</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/complaint">File a new complaint</a>
